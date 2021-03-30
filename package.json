@@ -1,0 +1,35 @@
+{
+  "name": "coa-ali-pop",
+  "version": "0.0.0",
+  "description": "极简的阿里云POP SDK for Node.js",
+  "keywords": [
+    "coa",
+    "coajs",
+    "coa-ali-pop",
+    "ali-pop",
+    "ali",
+    "pop"
+  ],
+  "license": "MIT",
+  "author": "Aex",
+  "homepage": "https://github.com/coajs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coajs/coa-ali-pop.git"
+  },
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "rm -rf dist && tsc && cp package.json *.md dist && rm -rf dist/test",
+    "publish-prerelease": "yarn build && yarn version --prerelease && cp package.json *.md dist && cd dist && rm -rf test && npm publish",
+    "test": "node dist/test"
+  },
+  "dependencies": {
+    "coa-error": "^1.1.3",
+    "coa-helper": "^1.1.1",
+    "coa-secure": "^1.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "typescript": "^4.2.3"
+  }
+}
