@@ -12,8 +12,8 @@ const plsAxnExtensionExample = {
   secretBindDto: {
     extension: '9',
     secretNo: '17197665719',
-    subsId: '1000009497087157'
-  }
+    subsId: '1000009497087157',
+  },
 }
 
 export declare namespace CoaAliPop {

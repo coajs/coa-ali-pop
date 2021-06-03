@@ -6,7 +6,7 @@ const ocrConfig = {
   accessKeyId: 'LTAI4FkrXXXXXXLZpgGmbT',
   accessKeySecret: 'T7PSOeuWIVgpXXXXXXyyqNCAPlv1',
   endpoint: 'https://dyplsapi.aliyuncs.com',
-  apiVersion: '2017-05-25'
+  apiVersion: '2017-05-25',
 }
 
 // 创建一个Bin配置实例
