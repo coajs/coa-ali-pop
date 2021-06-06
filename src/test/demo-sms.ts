@@ -3,8 +3,8 @@ import { CoaAliOssBin, CoaAliPopSmsService } from '..'
 
 // 短信配置
 const smsConfig = {
-  accessKeyId: 'LTAI4FkrGPYbHn3tLZpgGmbT',
-  accessKeySecret: 'T7PSOeuWIVgpPmdqVg3FyyqNCAPlv1',
+  accessKeyId: 'LTAI4FkrGXXXXXXXXLZpgGmbT',
+  accessKeySecret: 'T7PSOeuWIVgXXXXX3FyyqNCAPlv1',
   endpoint: 'https://dysmsapi.aliyuncs.com',
   apiVersion: '2017-05-25',
 }
