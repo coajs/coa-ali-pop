@@ -18,7 +18,7 @@
     "url": "https://github.com/coajs/coa-ali-pop.git"
   },
   "scripts": {
-    "dev": "tsc -w",
+    "tsc": "tsc -w",
     "build": "rm -rf dist && tsc && cp package.json *.md dist && rm -rf dist/test",
     "test": "node dist/test",
     "lint": "eslint .",
