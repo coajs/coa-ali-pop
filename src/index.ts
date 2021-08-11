@@ -1,9 +1,7 @@
-// libs
-export { CoaAliPop } from './typings'
 export { CoaAliPopBin } from './libs/CoaAliPopBin'
-
-// services
-export { CoaAliPopSmsService } from './services/CoaAliPopSmsService'
 export { CoaAliPopOcrService } from './services/CoaAliPopOcrService'
 export { CoaAliPopPlsService } from './services/CoaAliPopPlsService'
+export { CoaAliPopSmsService } from './services/CoaAliPopSmsService'
 export { CoaAliPopStsService } from './services/CoaAliPopStsService'
+export { CoaAliSigninService } from './services/CoaAliSigninService'
+export { CoaAliPop } from './typings'
