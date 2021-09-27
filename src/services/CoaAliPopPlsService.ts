@@ -6,7 +6,12 @@ import { CoaAliPopServiceBase } from '../libs/CoaAliPopServiceBase'
 // 接口文档 https://help.aliyun.com/document_detail/109424.html
 export class CoaAliPopPlsService extends CoaAliPopServiceBase {
   // 绑定Axn分机号，详见 https://help.aliyun.com/document_detail/110259.html
-  async bindAxnExtension(mobile: string, expireAt: number, record = false, outId = '') {
+  async bindAxnExtension(
+    mobile: string,
+    expireAt: number,
+    record = false,
+    outId = ''
+  ) {
     const params = {
       PhoneNoA: mobile,
       Expiration: $.datetime('YYYY-MM-DD HH:mm:ss', expireAt),

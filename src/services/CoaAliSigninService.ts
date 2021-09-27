@@ -20,8 +20,18 @@ export class CoaAliSigninService {
    * @param AccessKeySecret STS返回的临时Secret
    * @param SecurityToken STS返回的安全Token
    */
-  async GetSigninToken(AccessKeyId: string, AccessKeySecret: string, SecurityToken: string): Promise<GetSigninTokenResponse> {
-    const params = { Action: 'GetSigninToken', AccessKeyId, AccessKeySecret, SecurityToken, TicketType: 'mini' }
+  async GetSigninToken(
+    AccessKeyId: string,
+    AccessKeySecret: string,
+    SecurityToken: string
+  ): Promise<GetSigninTokenResponse> {
+    const params = {
+      Action: 'GetSigninToken',
+      AccessKeyId,
+      AccessKeySecret,
+      SecurityToken,
+      TicketType: 'mini',
+    }
     return await this.bin.federation(params)
   }
 

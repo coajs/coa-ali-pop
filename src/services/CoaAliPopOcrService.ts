@@ -11,7 +11,11 @@ export class CoaAliPopOcrService extends CoaAliPopServiceBase {
 
   // 身份证识别 https://help.aliyun.com/document_detail/151899.html
   async recognizeIdentityCard(url: string, side: 'back' | 'face') {
-    const params = { Action: 'RecognizeIdentityCard', ImageURL: url, Side: side }
+    const params = {
+      Action: 'RecognizeIdentityCard',
+      ImageURL: url,
+      Side: side,
+    }
     return await this.bin.post(params, 'statusCode')
   }
 

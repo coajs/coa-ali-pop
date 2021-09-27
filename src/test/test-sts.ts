@@ -21,14 +21,26 @@ $.run(async () => {
   const loginService = new CoaAliSigninService()
 
   // 获取STS
-  const res = await stsService.assumeRole('acs:ram::1575463359279889:role/aliyunlogaccessrole', 'sls')
+  const res = await stsService.assumeRole(
+    'acs:ram::1575463359279889:role/aliyunlogaccessrole',
+    'sls'
+  )
 
   // 登陆
-  const token = await loginService.GetSigninToken(res.credentials.accessKeyId, res.credentials.accessKeySecret, res.credentials.securityToken)
+  const token = await loginService.GetSigninToken(
+    res.credentials.accessKeyId,
+    res.credentials.accessKeySecret,
+    res.credentials.securityToken
+  )
 
   // 获取地址
-  const logUrl = 'https://sls4service.console.aliyun.com/lognext/project/xxx-project-xxx/logsearch/xxx-logstore-xxx?isShare=true'
-  const url = loginService.getSigninUrl('https://isus.vip', logUrl, token.signinToken)
+  const logUrl =
+    'https://sls4service.console.aliyun.com/lognext/project/xxx-project-xxx/logsearch/xxx-logstore-xxx?isShare=true'
+  const url = loginService.getSigninUrl(
+    'https://isus.vip',
+    logUrl,
+    token.signinToken
+  )
 
   console.log(url)
 })

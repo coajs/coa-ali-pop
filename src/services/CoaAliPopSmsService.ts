@@ -2,7 +2,14 @@ import { CoaAliPopServiceBase } from '../libs/CoaAliPopServiceBase'
 
 export class CoaAliPopSmsService extends CoaAliPopServiceBase {
   // 发送短信
-  async send(mobile: string, data: { signName: string; templateCode: string; param: { [index: string]: any } }) {
+  async send(
+    mobile: string,
+    data: {
+      signName: string
+      templateCode: string
+      param: { [index: string]: any }
+    }
+  ) {
     const params = {
       PhoneNumbers: mobile,
       SignName: data.signName,

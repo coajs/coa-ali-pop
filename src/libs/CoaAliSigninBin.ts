@@ -22,8 +22,16 @@ export class CoaAliSigninBin {
 
   // 处理结果
   protected responseResult({ status, statusText, data }: Axios.AxiosResponse) {
-    if (status !== 200) CoaError.throw('AliPop.Error.' + status, '阿里云服务提示: ' + (data?.Message || statusText || '请求错误'))
-    if (data.ErrorCode) CoaError.throw('AliPop.Error.' + data.ErrorCode, '阿里云服务提示: ' + (data.ErrorMessage || '返回异常错误'))
+    if (status !== 200)
+      CoaError.throw(
+        'AliPop.Error.' + status,
+        '阿里云服务提示: ' + (data?.Message || statusText || '请求错误')
+      )
+    if (data.ErrorCode)
+      CoaError.throw(
+        'AliPop.Error.' + data.ErrorCode,
+        '阿里云服务提示: ' + (data.ErrorMessage || '返回异常错误')
+      )
     return $.camelCaseKeys(data)
   }
 }

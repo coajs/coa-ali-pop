@@ -34,8 +34,19 @@ export class CoaAliPopStsService extends CoaAliPopServiceBase {
    * @param Policy 权限策略。生成STS Token时可以指定一个额外的权限策略，以进一步限制STS Token的权限。若不指定则返回的Token拥有指定角色的所有权限。长度为1~1024个字符
    * @param DurationSeconds 过期时间，单位为秒。过期时间最小值为900秒，最大值为MaxSessionDuration设置的时间。默认值为3600秒
    */
-  async assumeRole(RoleArn: string, RoleSessionName: string, Policy = '', DurationSeconds = 3600): Promise<AssumeRoleResult> {
-    const params = { Action: 'AssumeRole', RoleArn, RoleSessionName, Policy, DurationSeconds }
+  async assumeRole(
+    RoleArn: string,
+    RoleSessionName: string,
+    Policy = '',
+    DurationSeconds = 3600
+  ): Promise<AssumeRoleResult> {
+    const params = {
+      Action: 'AssumeRole',
+      RoleArn,
+      RoleSessionName,
+      Policy,
+      DurationSeconds,
+    }
     return await this.bin.post(params, 'statusCode')
   }
 

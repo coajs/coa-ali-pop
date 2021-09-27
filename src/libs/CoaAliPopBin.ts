@@ -14,7 +14,9 @@ export class CoaAliPopBin {
   public async post(body: any, errorCodeType: 'statusCode' | 'bodyCode') {
     const requestString = this.signRequestString(body, 'POST')
 
-    const response = await axios.post(this.config.endpoint, requestString).catch((e) => e.response || e)
+    const response = await axios
+      .post(this.config.endpoint, requestString)
+      .catch((e) => e.response || e)
 
     return this.responseResult(response, errorCodeType)
   }
@@ -32,8 +34,14 @@ export class CoaAliPopBin {
     })
 
     const sortQueryString = this.getSortQueryString(params)
-    const stringToSign = `${method}&${this.encode('/')}&${this.encode(sortQueryString)}`
-    const signature = secure.sha1_hmac(stringToSign, this.config.accessKeySecret + '&', 'base64')
+    const stringToSign = `${method}&${this.encode('/')}&${this.encode(
+      sortQueryString
+    )}`
+    const signature = secure.sha1_hmac(
+      stringToSign,
+      this.config.accessKeySecret + '&',
+      'base64'
+    )
 
     return `Signature=${this.encode(signature)}&${sortQueryString}`
   }
@@ -45,7 +53,12 @@ export class CoaAliPopBin {
 
   // Signature encode
   protected encode(str: string) {
-    return encodeURIComponent(str).replace(/!/g, '%21').replace(/'/g, '%27').replace(/\(/g, '%28').replace(/\)/g, '%29').replace(/\*/g, '%2A')
+    return encodeURIComponent(str)
+      .replace(/!/g, '%21')
+      .replace(/'/g, '%27')
+      .replace(/\(/g, '%28')
+      .replace(/\)/g, '%29')
+      .replace(/\*/g, '%2A')
   }
 
   // 获取排序过的querystring
@@ -59,9 +72,22 @@ export class CoaAliPopBin {
   }
 
   // 处理结果
-  protected responseResult({ status, statusText, data }: Axios.AxiosResponse, errorCodeType: string) {
-    if (status !== 200) CoaError.throw('AliPop.Error.' + status, _.toString(data.Message) || _.toString(statusText) || '阿里云:服务请求错误')
-    if (errorCodeType === 'bodyCode' && data.Code !== 'OK') CoaError.throw('AliPop.Error.' + data.Code, _.toString(data.Message) || '阿里云:服务返回错误')
+  protected responseResult(
+    { status, statusText, data }: Axios.AxiosResponse,
+    errorCodeType: string
+  ) {
+    if (status !== 200)
+      CoaError.throw(
+        'AliPop.Error.' + status,
+        _.toString(data.Message) ||
+          _.toString(statusText) ||
+          '阿里云:服务请求错误'
+      )
+    if (errorCodeType === 'bodyCode' && data.Code !== 'OK')
+      CoaError.throw(
+        'AliPop.Error.' + data.Code,
+        _.toString(data.Message) || '阿里云:服务返回错误'
+      )
     return $.camelCaseKeys(data)
   }
 }

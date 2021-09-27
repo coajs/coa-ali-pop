@@ -47,7 +47,11 @@ const smsBin = new CoaAliOssBin(smsConfig)
 const smsService = new CoaAliPopSmsService(smsBin)
 
 // 通过一个模版给某个手机号发送短信消息
-smsService.send('15010001001', { signName: 'XXX科技', templateCode: 'XXXXXX', param: { name: '张三' } })
+smsService.send('15010001001', {
+  signName: 'XXX科技',
+  templateCode: 'XXXXXX',
+  param: { name: '张三' },
+})
 ```
 
 #### 隐私号
